@@ -1,0 +1,280 @@
+% TeX root = ./main.tex
+
+% First argument to \section is the title that will go in the table of contents. Second argument is the title that will be printed on the page.
+\section[Suites réelles]{Suites réelles}
+
+\subsection{Introduction}
+
+\begin{flushleft}
+	\textit{Deux grandeurs inégales étant proposées, si l’on retranche de la plus grande une partie plus grande que sa moitié, si l’on retranche du reste une partie plus grande que sa moitié, et que l’on fait toujours la même chose, il restera une grandeur qui sera plus petite que la plus petite des grandeurs proposées.}
+\end{flushleft}
+\begin{flushright}
+	Euclide
+\end{flushright}
+
+\begin{flushleft}
+	\textit{Lorsque les valeurs successivement attribuées à une même variable s’approchent indéfiniment d’une valeur finie, de manière à en différer aussi peu qu’on voudra, cette dernière est appelée limite de toutes les autres..}
+\end{flushleft}
+\begin{flushright}
+	Augustin Louis Cauchy
+\end{flushright}
+Bien avant de faire l’objet d'une étude formalisée, les suites apparaissent dans deux types
+de situations : approximations de réels et problèmes de comptages. 
+
+
+Les problèmes décrits dans les livres de Fibonacci, ou chez les savants arabes qui le
+précèdent, se modélisent avec des suites. Oresme calcule des sommes de termes de suites
+géométriques au XIVe siècle.
+
+
+On trouve chez Diophante, puis chez Al-Khwârizmî, des méthodes de résolutions
+d’équations du second degré. Le travail novateur d’Al-Khwârizmî reste en partie tributaire de
+la tradition (utilisation de considérations géométriques équivalentes à la forme canonique) et
+de l'état alors embryonnaire de la notation algébrique, ainsi que de l’absence des nombres
+négatifs. Les méthodes actuelles sont un aboutissement de ce long cheminement vers un
+formalisme efficace et concis.
+
+
+Les approximations de réels à l'aide de suites font appel à la notion de limite dont l'appréhension est ancienne. On trouvait en effet déjà cette notion dans des ouvrages d'Euclide. Ce n'est qu'à la moitié du XIXe siècle que la formalisation morderne de la notion de limite est née, grâce au mathématicien Karl Weierstrass.
+
+
+Ce cours traîtera de généralités sur les suites réelles dans le carde du programe de première.
+
+\subsection{Définitions}
+
+\begin{definition}{Suite réelle}{o}
+Une suite réelle est une fonction de $\N$ dans $\R$. On note généralement $(u_n)_{n\in\N}$ un tel objet, mais les notations suivantes sont possibles : $(u_n)_n$, $(u_n)$ ou simplement $u$.
+\end{definition}
+
+Les suites peuvent être définies de plusieurs manières différentes. Dans le cadre du programme de 1ère, on retient deux manières principales de définir une suite : 
+\begin{itemize}
+	\item \textbf{Définition explicite} : Si on possède une fonction $f:\N\to\R$, on peut directement définir une suite en donnant son terme général. Pour tout $n\in\N$, $u_n=f(n)$.
+	\item \textbf{Définition par récurrence} : Si on possède une fonction $f:\R\to\R$, on peut définir une suite en donnant deux informations : le premier terme de la suite, en général $u_0$, et comment, pour un entier $n$ donné, le terme $u_{n+1}$ est calculé à partir du terme $u_n$, et ce en donnant une relation de récurrence : pour tout entier naturel $n$, $u_{n+1}=f(u_n)$.
+\end{itemize}
+
+\begin{exemple}{Suite définie par récurrence}{o}
+Soit une suite $(u_n)$ définie par \[\begin{cases}u_0=1\\ \forall n\in\N,\quad u_{n+1}=2u_n\end{cases}\]
+Calculer $u_5$.
+\end{exemple}
+
+\begin{exemple}{Suite définie explicitement}{o}
+Soit une suite $(u_n)$ définie par \[\forall n\in\N,\quad u_n=n^2+n+1\]
+Exprimer $u_{n+1}$.
+\end{exemple}
+
+\subsection{Suites arithmétiques et géométriques}
+\subsubsection{Suites arithmétiques}
+\begin{definition}{Suite arithmétique}{o}
+Soit $(u_n)$ une suite réelle. S'il existe un réel $r$ tel que \[\forall n\in\N,\quad u_{n+1}=u_n+r\]
+On dit que $(u_n)$ est arithmétique. On appelle $r$ la raison de la suite.
+\end{definition}
+
+\begin{exemple}{Suite arithmétique}{o}
+La suite $(u_n)$ définie par \[\forall n\in\N,\quad u_n=3n+1\] est arithmétique. Comment le vérifier ?
+\end{exemple}
+
+L'exemple précédent amène un point de méthodologie. On se ramène à la définition : le critère qui y est cité est un critère d'existence, il faut montrer l'existence de $r$ vérifiant la relation de récurrence $\forall n\in\N,\ u_{n+1}=u_n+r$. Pour cela, on peut calculer $u_{n+1}-u_n$ pour tout $n$ entier naturel.
+
+\begin{proposition}{Expression explicite d'une suite arithmétique}{o}
+Soit $(u_n)$ une suite arithmétique de raison $r\in\R$. On a \[\forall n\in\N,\quad u_n=nr+u_0\]
+\end{proposition}
+
+\begin{proof}
+	De la définition d'une suite arithmétique, on sait que $\forall n\in\N,\ u_{n+1}-u_n=r$. On peut alors, pour $n\in\N^*$, écrire cette relation $n$ fois comme ceci : 
+	\begin{align*}
+		u_1-u_0 &= r\\
+		u_2-u_1 &= r\\
+		\vdots\\
+		u_n-u_{n-1} &= r
+	\end{align*}
+	En sommant toutes les relations, on se rend compte que, d'un côté des égalités, plein de termes s'annulent :
+	\begin{align*}
+		\cancel{u_1}-u_0 &= r\\
+		\cancel{u_2}-\cancel{u_1} &= r\\
+		\vdots\\
+		u_n-\cancel{u_{n-1}} &= r
+	\end{align*}
+
+	Ce qui donne comme résultalt : \[u_n-u_0=\underbrace{r+\dots+r}_{n\text{ fois}}\]
+	Comme on somme $n$ égalités, on trouve $n$ fois la raison $r$ à droite, d'où \[u_n-u_0=nr\]
+	Et ainsi \[u_n=u_0+nr\]
+	Cette relation reste vraie au rang $0$, puisque $u_0=u_0+0\times r$.
+\end{proof}
+
+\begin{exemple}{Expression explicite d'une suite arithmétique}{o}
+	Soit $(u_n)$ la suite définie par \[\begin{cases}u_0=1\\\forall n\in\N,\quad u_{n+1}=u_n+3\end{cases}\]
+	Donner l'expression du terme général de $(u_n)$.
+\end{exemple}
+Dans certains contextes, il peut être intéressant de savoir calculer la somme des termes d'une suite. Dans le cas des suites arithmétiques, on sait produire une formule pour la somme des termes, elle découle directement de la somme des $n$ premiers entiers naturels pour un entier $n$ donné.
+
+\begin{lemme}{Somme des premiers entiers naturels}{o}
+Soit $n\in\N$. On a \[1+2+\dots+n=\frac{n(n+1)}2\]
+\end{lemme}
+
+\begin{proof}
+Pour cette démonstration, on utilisera la technique qu'aurait utilisée le petit Gauss (Karl Friedrich Gauss est un mathématicien important du XIXème siècle) pour calculer la somme des entiers entre $1$ et $100$. On écrit la somme dans les deux sens : 
+\[
+\begin{array}{c c c c c c c}
+	1 & + & 2 & + & \dots & + & n\\
+	n & + & n-1 & + & \dots & + & 1
+\end{array}
+\]
+On se rend alors compte que pour chaque colonne, la somme des entiers qui s'y trouvent vaut $n+1$ (en effet, $n + 1 = n+1$, $n-1+2=n+1$, $n-2+3=n+1$...). Si on note $S$ la somme $1+2+\dots+n$, on a alors \[2S=\underbrace{(n+1)+\dots+(n+1)}_{n\text{ fois}}\]
+Il s'ensuit donc que $2S=n(n+1)$ et donc finalement \[S=\frac{n(n+1)}2\]
+\end{proof}
+
+\begin{proposition}{Sommes des termes d'une suite arithmétique}{o}
+Soit $(u_n)$ une suite arithmétique de raison $r$ et $n\in\N$. Alors 
+\[u_0+u_1+\dots+u_n=(n+1)\frac{u_n+u_0}2\]
+\end{proposition}
+
+\begin{proof}
+On note $S$ la somme que l'on veut calculer et on écrit
+\begin{align*}
+	S=u_0+u_1+\dots+u_n &= (0\times r+u_0)+(1\times r+u_0)+\dots+(n\times r+u_0)\\
+						&= 0\times r+1\times r+\dots+n\times r+(\underbrace{u_0+\dots+u_0}_{n+1\text{ fois}})\\
+						&= r(0+1+\dots+n)+(n+1)u_0
+\end{align*}
+Ainsi, en utilisant le lemme précédant, on arrive à calculer la somme $1+\dots+n$ et on a 
+\[S=r\frac{n(n+1)}2+(n+1)u_0\]
+On factorise par $(n+1)$ et on a 
+\begin{align*}
+	S &= (n+1)\left(u_0+\frac{nr}2\right)\\
+	  &= (n+1)\frac{nr+2u_0}2\\
+	  &= (n+1)\frac{(nr+u_0)+u_0}2\\
+	  &= (n+1)\frac{u_n+u_0}2
+\end{align*}
+\end{proof}
+
+\subsubsection{suites géométriques}
+\begin{definition}{Suite géométrique}{o}
+	Soit $(u_n)$ une suite réelle. S'il existe un réel $q$ tel que \[\forall n\in\N,\quad u_{n+1}=qu_n\]
+	alors on dit que $(u_n)$ est géométrique. On appelle $q$ la raison de la suite.
+\end{definition}
+
+\begin{exemple}{Suite géométrique}{o}
+La suite $(u_n)$ est définie par \[\forall n\in\N,\quad u_n=\frac3{2^n}\]
+est géométrique. Comment le vérfier ?
+\end{exemple}
+Comme pour le cas des suites arithmétiques, l’exemple précédent amène également un point de méthodologie. Il s'agit ici de montrer l’existence de $q$ vérifiant la relation de récurrence $\forall n\in\N u_{n+1} = qu_n$. Pour cela, on peut calculer, après s'être assuré que $u_n$ est non nul pour tout $n$, $\frac{u_{n+1}}{u_n}$ pour tout $n$.
+
+
+\begin{proposition}{Expression explicite d'une suite géométrique}{o}
+	Soit $(u_n)$ une suite géométrique de raison $q\in\R$. On a \[\forall n\in\N,\quad u_n=u_0q^n\]
+\end{proposition}
+
+\begin{proof}
+	Clair. Laissée au lecteur.
+\end{proof}
+
+\begin{exemple}{Expression explicite d'une suite géométrique}{o}
+	Soit $(u_n)$ la suite définie par \[\begin{cases}u_0=3\\\forall n\in\N,\quad u_{n+1}=\frac12u_n\end{cases}\]
+	Donner l'expression du terme général de $(u_n)$.
+\end{exemple}
+Comme pour le cas des suites arithmétiques, on sait donner une expression consise pour la somme des termes d'une suite géométrique. On établit d'abord un premier résultat
+
+\begin{lemme}{Somme des premières puisssance d'un réel différent de $1$}{o}
+Soit $q\in\R\backslash\lbrace 1\rbrace$ et $n\in\N$. Alors \[1+q+q^2+\dots+q^n=\frac{1-q^{n+1}}{1-q}\]
+\end{lemme}
+
+\begin{proof}
+Notons $S=1+q+q^2+\dots+q^n$. Dans ce cas
+\[qS=q(1+q+q^2+\dots+q^n)=q+q^2+q^3+\dots+q^{n+1}\]
+En effectuant la différence entre $S$ et $qS$, il se produit le même phénomène qu'à la preuve de la proposition 1.3.1, c'est-à-dire un télescopage. Le lecteur se convaincra ainsi que $S-qS=1-q^{n+1}$ et ainsi, comme $1-q\neq 0$ (puisque $q\neq 1$), on a \[S=\frac{1-q^{n+1}}{1-q}\]
+\end{proof}
+
+\begin{proposition}{Somme des termes d'une suite géométrique}{o}
+	Soit $(u_n)$ une suite géométrique de raison $q\in\R$. Soit $n\in\N$, alors \[u_0+u_1+\dots+u_n=u_0\frac{1-q^{n+1}}{1-q}\]
+\end{proposition}
+
+\begin{proof}
+	En écrivant la somme, on se rend compte qu'il est possible de factoriser par $u_0$, sachant l'expression explicite de $(u_n)$ 
+	\begin{align*}
+		u_0+u_1+\dots+u_n &= u_0+u_0q+\dots+u_0q^n\\
+						  &= u_0(1+q+\dots+q^n)
+	\end{align*}
+	On utilise le lemme précédant pour établir que \[u_0+u_1+\dots+u_n=u_0\frac{1-q^{n+1}}{1-q}\]
+\end{proof}
+
+\subsection{Sens de variations d'une suite}
+\subsubsection{Suites monotones et constantes}
+
+\begin{definition}{Sens de variations}{o}
+	Soit $(u_n)$ une suite réelle. 
+	\begin{itemize}
+		\item Si $\forall n\in\N,\ u_{n+1}\geq u_n$, on dit que la suite est \textbf{croissante}.
+		\item Si $\forall n\in\N,\ u_{n+1}\leq u_n$, on dit que la suite est \textbf{décroissante}.
+		\item S'il existe un réel $a$ tel que $\forall n\in\N,\ u_n=a$, on dit que la suite est \textbf{constante}.
+		On dit que $(u_n)$ est \textbf{monotone} si elle est croissante ou décroissante.  
+	\end{itemize}
+\end{definition}
+\textbf{Remarque :} il existe un autre vocabulaire pour les suites \textit{presque} constantes. En effet, s'il existe un réel $a$ et un entier $n_0$ tel que $\forall n\geq n_0,\ u_n=a$, alors on dit que $(u_n)$ est \textbf{stationnaire}.
+
+
+\textbf{Remarque :} on parle de stricte croissance (ou stricte décroissance) lorsque les inégalités ci-dessus sont strictes.
+\begin{exemple}{Cette suite est-elle monotone ?}{o}
+	Soit $(u_n)$ une suite définie par \[\begin{cases} u_0=0\\\forall n\in\N,\quad u_{n+1}=u_n+(1-n)^2\end{cases}\]
+	Déterminer si cette suite est monotone. Si oui, donner sa monotonie (dire si elle est croissante ou décroissante).
+\end{exemple}
+
+\textbf{Remarque : } Si une suite $(u_n)$ est à termes strictement positifs, une autre manière de déterminer son sens de variation est de calculer, pour tout $n\in\N$ le quotient $\frac{u_{n+1}}{u_n}$. Trois cas se présentent :
+
+\begin{itemize}
+	\item $\forall n\in\N,\ \frac{u_{n+1}}{u_n} \leq 1$ et dans ce cas la suite est décroissante.
+	\item $\forall n\in\N,\ \frac{u_{n+1}}{u_n} = 1$ et dans ce cas la suite est constante.
+	\item $\forall n\in\N,\ \frac{u_{n+1}}{u_n} \geq 1$ et dans ce cas la suite est croissante.
+\end{itemize}
+
+\subsubsection{Cas des suites arithmétiques et géométriques}
+
+\begin{proposition}{Sens de variation des suites arithmétiques}{o}
+Soit $(u_n)$ une suite arithmétique de raison $r\in\R$. Ainsi 
+\begin{itemize}
+	\item Si $r\geq 0$, alors $(u_n)$ est croissante.
+	\item Si $r\leq 0$, alors $(u_n)$ est décroissante.
+\end{itemize}
+\end{proposition}
+\begin{proof}
+Soit $n\in\N$, on sait que $u_{n+1}=u_n+r$, donc $u_{n+1}-u_n=r$. Ainsi, si $r\leq 0$ $(u_n)$ est décroissante et si $r\geq 0$ $(u_n)$ est croissante d'après les définition.
+\end{proof}
+
+\begin{proposition}{Sens de variation des suites géométriques}{o}
+Soit $(u_n)$ une suite géométrique de raison $q\in\R$. Plusieurs cas se présentent : 
+\begin{itemize}
+	\item Si $q > 0$, alors, si $u_0$ est positif (resp. négatif) 
+	\begin{itemize}
+		\item Si $q \geq 1$, alors $(u_n)$ est croissante (resp. décroissante).
+		\item Si $q = 1$, alors $(u_n)$ est constante.
+		\item Si $q \leq 1$, alors $(u_n)$ est décroissante (resp. croissante).
+	\end{itemize}
+	\item Si $q = 0$, alors $(u_n)$ est stationnaire égale à $0$ à partir du range $1$.
+	\item Si $q < 0$, on ne peut malheureusement rien dire...
+\end{itemize}
+\end{proposition}
+
+\begin{exemple}{Sens de variation de suites arithmétiques et géométriques}{o}
+	Soit $(u_n)$ la suite définie par \[\begin{cases}u_0=-2\\ \forall n\in\N,\quad u_{n+1}=\frac12 u_n\end{cases}\]
+	Que dire de son sens de variation ? Donner un exemple d'une suite arithmétique décroissante. 
+\end{exemple}
+
+\subsubsection{Cas des suites définies explicitement}
+
+\subsection{Représentation graphique d'une suite}
+
+\subsection{Limite d'une suite}
+
+\subsection{Compléments}
+
+\newpage
+\section[Polynômes du second degré]{Polynômes du second degré}
+
+\subsection{Définition}
+
+\subsection{Forme canonique et forme factorisée}
+
+\subsection{Signe d'une fonction polynômiale du second degré}
+
+\subsection{Équations du second degré}
+
+\subsection{Compléments}
+

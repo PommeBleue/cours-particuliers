@@ -1,0 +1,243 @@
+% Preamble
+\documentclass[17pt]{article}
+
+% Math related packages.
+\usepackage{amsfonts, amsthm, amsmath, amssymb, amstext}
+\usepackage{mathtools}
+\usepackage{physics}
+\usepackage{cancel, textcomp}
+\usepackage[mathscr]{euscript}
+\usepackage[nointegrals]{wasysym}
+\usepackage[left=3cm, right=3cm, top=1.5cm, bottom=1.5cm]{geometry}
+
+\usepackage{esvect}
+\usepackage{IEEEtrantools}
+
+% Font related packages.
+\usepackage[french]{babel}
+\usepackage[unicode]{hyperref}
+\usepackage[fontsize = 10pt]{scrextend}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[finemath]{kotex}
+\usepackage{dhucs-nanumfont}
+\usepackage{mathpazo}
+\usepackage{FiraMono}
+\usepackage{mathrsfs}
+
+% Other
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+\usepackage{tabularx}
+\usepackage[object=vectorian]{pgfornament}
+\usepackage{pgf}
+\usepackage{pgfpages}
+\usepackage[european,straightvoltages]{circuitikz}
+\usepackage{scalerel}
+\usepackage{stackengine}
+
+
+% A more colorful world.
+\usepackage{xcolor}
+
+% Display Source Code
+\usepackage{listings}
+\lstset{
+    language=C,
+    basicstyle=\small\ttfamily\mdseries,
+    numberstyle=\color{gray},
+    stringstyle=\color[HTML]{933797},
+    commentstyle=\color[HTML]{228B22},
+    emph={[2]from,with,import,as,pass,return,and,or,not},
+    emphstyle={[2]\color[HTML]{DD52F0}},
+    emph={[3]range,format,enumerate,print},
+    emphstyle={[3]\color[HTML]{D17032}},
+    emph={[4]if,elif,else,for,while,in,def,lambda,int,float,all,len},
+    emphstyle={[4]\color{blue}},
+    emph={[5]abs},
+    emphstyle={[5]\color{black}},
+    showstringspaces=false,
+    breaklines=true,
+    prebreak=\mbox{{\color{gray}\tiny$\searrow$}},
+    numbers=left,
+    xleftmargin=15pt
+}
+
+% OPTIONS
+\everymath\expandafter{\the\everymath\displaystyle}
+
+% COMMANDS
+\newcommand{\f}[1]{\texttt{#1}}
+\newcommand{\sct}[1]{
+	\begin{center}
+		\Large\textbf{#1}
+	\end{center}
+}
+\newcommand{\subsct}[1]{
+	\begin{center}
+		\large\textbf{#1}
+	\end{center}
+}
+\newcommand{\inl}[2]{[\![#1, #2]\!]}
+\newcommand{\q}[1]{\textbf{#1.}\quad}
+\newcommand{\urlsymbol}{\kern1pt\vbox to .5ex{}\raise.10ex\hbox{\pdfliteral{%
+    q .8 0 0 .8 0 0 cm
+    2.5 5 m 1 j 1 J .8 w
+    1 5 l 0 5 0 4 y 0 1 l 0 0 1 0 y 4 0 l 5 0 5 1 y 5 2.5 l S
+    3 3 m 6 6 l S 4 6 m 6 6 l 6 4 l S
+Q}}\kern5pt}
+
+\newcounter{iloop}
+\newcommand\openbigstar[1][0.7]{%
+  \scalerel*{%
+    \stackinset{c}{-.125pt}{c}{}{\scalebox{#1}{\color{white}{$\bigstar$}}}{%
+      $\bigstar$}%
+  }{\bigstar}
+}
+\newcommand{\Stars}[1]{\ensuremath{%
+\pgfmathtruncatemacro{\imax}{ifthenelse(int(#1)==#1,#1-1,#1)}%
+\pgfmathsetmacro{\xrest}{0.9*(1-#1+\imax)}%
+\setcounter{iloop}{0}%
+\loop\stepcounter{iloop}\ifnum\value{iloop}<\the\numexpr\imax+1
+\bigstar\repeat
+\openbigstar[\xrest]%
+\setcounter{iloop}{0}%
+\loop\stepcounter{iloop}\ifnum\value{iloop}<\the\numexpr5-\imax\relax
+\openbigstar[.9]\repeat}}
+
+
+\def\N{\mathbb N}
+\def\Z{\mathbb Z}
+\def\Q{\mathbb Q}
+\def\R{\mathbb R}
+\def\Rpe{\mathbb R_+^*}
+\def\C{\mathbb C}
+\def\K{\mathbb K}
+\def\L{\mathbb L}
+
+\def\P{\mathscr{P}}
+
+\def\pe#1{\left\lfloor #1\right\rfloor}
+\def\pd#1{\left\lbrace #1\right\rbrace}
+\def\pscal#1#2{\langle#1,#2\rangle}
+
+\def\Ker{\text{Ker}}
+\def\ord{\text{ord}}
+
+\def\Vect{\text{Vect}}
+
+\def\ni#1{\|#1\|_{\infty}}
+
+
+\def\ssi{\Leftrightarrow}
+\def\Ssi{\Longleftrightarrow}
+\def\implique{\Longrightarrow}
+
+\def\sep{\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}}
+
+% CUSTOM TITLE
+\makeatletter
+\def\@maketitle{%
+	\newpage
+	%  \null% DELETED
+	%  \vskip 2em% DELETED
+	\begin{center}%
+		\let \footnote \thanks
+		{\LARGE\bfseries \@title \par}%
+		\vskip 1em%
+		{\large
+			\lineskip .5em%
+			\begin{tabular}[t]{c}%
+				\@author
+			\end{tabular}\par}%
+		\vskip 1em%
+		{\large \@date}%
+	\end{center}%
+	\par
+	\vskip -1em}
+\makeatother
+
+\title{\huge\bfseries Rappels essentiels et exercices\\ Séance 0}
+\begin{document}
+\maketitle
+
+Comme prévu, ce document regroupe règles de calcul et certaines formules essentielles qu'il impératif de connaître. En vous rendant à la toute fin, quelques exercices d'entraînement sont proposés.
+
+\begin{center}
+	\LARGE\bfseries Identités remarquables
+\end{center}
+\vspace{1cm}
+Dans ce qui suit, $a$ et $b$ sont des réels.\\
+\begin{center}
+\begin{tabular}{ c c c }
+	$\boxed{(a+b)^2=a^2+2ab+b^2}$ & $\boxed{(a-b)^2=a^2-2ab+b^2}$ & $\boxed{a^2-b^2=(a+b)(a-b)}$\\\\
+	$\boxed{(a+b)^3=a^3+3a^2b+3ab^2+b^3}$ &  & $\boxed{(a-b)^3=a^3-3a^2b+3ab^2-b^3}$ 
+\end{tabular}
+\end{center}
+
+\begin{center}
+	\LARGE\bfseries Puissances
+\end{center}
+\vspace{1cm}
+Dans ce qui suit, $a$ et $b$ sont des réels, $b$ non nul, $n$ et $m$ sont des entiers.\\
+\begin{center}
+\begin{tabular}{ c c c }
+	$\boxed{a^na^m=a^{n+m}}$ & $\boxed{\frac{a^n}{a^m}=a^{n-m}}$ & $\boxed{a^nb^n=(ab)^n}$\\\\
+	$\boxed{\frac{a^n}{b^n}=\left(\frac ab\right)^n}$ & $\boxed{a^{nm}=(a^n)^m}$ & $\boxed{(-a)^n=(-1)^na^n}$  
+\end{tabular}
+\end{center}
+\textbf{Attention}\quad $a^{n^2}\neq (a^n)^2$.
+
+\begin{center}
+	\LARGE\bfseries Fractions
+\end{center}
+\vspace{1cm}
+Dans ce qui suit, $a,b,c,d$ sont des réels non nuls.
+\begin{center}
+\begin{tabular}{ c c c }
+	$\boxed{\frac ab+\frac cd=\frac{ad+cb}{bd}}$ & $\boxed{\frac ab-\frac cd=\frac{ad-cb}{bd}}$ & $\boxed{\frac{a+b}c=\frac ab+\frac bc}$\\\\
+	$\boxed{\frac ab\times\frac cd=\frac{ac}{bd}}$ & $\boxed{\frac{\frac ab}{\frac cd}=\frac{ad}{bc}}$ & $\boxed{\frac aa=1}$\\\\
+	$\boxed{-\frac ab=\frac{-a}b=\frac a{-b}}$ & & $\boxed{\frac ab=\frac cd\ssi ad = bc}$
+\end{tabular}
+\end{center}
+
+\newpage
+
+\begin{center}
+	\LARGE\bfseries Exercices
+\end{center}
+Il est important de consolider ses capacités de factorisation et de bien mener ses calculs littéraux lorsqu'ils se présentent. C'est pour cela que je vais glisser, à plusieurs reprises, des exercices où il va faloir prendre des initiatives. Ne pas oublier de penser aux identités remarquables.
+
+\subsection*{Fractions}
+\begin{enumerate}
+	\item Simplifier les fractions suivantes : $\frac{32}{40}$;\quad $8^3\times\frac1{4^2}$
+	\item Écrire sous forme d'une fraction irréductible : $\frac24-\frac13$;\quad $\frac23-0,2$;\quad $\frac{-\frac2{15}}{-\frac65}$
+	\item Écrire sous forme d'une fraction irréductible : $\frac{1 978\times1 979+1 980\times21+1958}{1 980\times1 979−1 978\times1 979}$
+\end{enumerate}
+
+\subsection*{Puissances}
+\begin{enumerate}
+	\item Donner dans chaque cas le résultat sous la forme d'une puissance de $10$ :
+	\begin{center}
+		\begin{tabular}{p{6cm} p{6cm}}
+			a)\quad $10^5\times 10^3$ & b)\quad $\frac{(10^5\times 10^{-3})^5}{(10^{-5}\times 10^3)^{-3}}$\\\\
+			c)\quad $(10^5)^3$ & d)\quad $\frac{10^{-5}}{10^{-3}}$
+		\end{tabular}
+	\end{center}
+	\item Dans chaque cas, donner ler résultat sous la forme $a^n$ où $a$ et $n$ sont deux entiers.
+	\begin{center}
+		\begin{tabular}{p{6cm} p{6cm}}
+			a)\quad $3^4\times 5^4$ & b)\quad $\frac{6^5}{2^5}$\\\\
+			c)\quad $(5^3)^{-2}$ & d)\quad $(-7)^3\times (-7)^5$
+		\end{tabular}
+	\end{center}
+\end{enumerate}
+
+\subsection*{Calcul littéral}
+\begin{enumerate}
+	\item Développer, réduire et ordonner selon les puissances de $x$ l'expression \[(x^2+x+1)(x^2-x+1)\]
+	\item Factoriser $xy+x+y+1$.
+	\item Factoriser $25-(10x+3)^2$.
+	\item Factoriser $(x+y)^2-z^2$.
+\end{enumerate}
+\end{document}
