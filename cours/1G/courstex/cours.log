@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.5.1)  29 JUL 2022 16:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.5.1)  31 JUL 2022 18:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1233,6 +1233,33 @@ LaTeX Warning: Label `prop:o' multiply defined.
 
 LaTeX Warning: Label `exemp:o' multiply defined.
 
+
+LaTeX Warning: Label `prop:o' multiply defined.
+
+
+LaTeX Warning: Label `exemp:o' multiply defined.
+
+
+LaTeX Warning: Label `exemp:o' multiply defined.
+
+
+LaTeX Warning: Label `exemp:o' multiply defined.
+
+
+LaTeX Warning: Label `defin:o' multiply defined.
+
+
+LaTeX Warning: Label `defin:o' multiply defined.
+
+
+LaTeX Warning: Label `prop:o' multiply defined.
+
+
+LaTeX Warning: Label `prop:o' multiply defined.
+
+
+LaTeX Warning: Label `prop:o' multiply defined.
+
 )
 \openout1 = `cours.aux'.
 
@@ -1521,9 +1548,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [4]
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
-(Font)              scaled to size 8.8pt on input line 98.
+(Font)              scaled to size 8.8pt on input line 99.
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
-(Font)              scaled to size 6.6pt on input line 98.
+(Font)              scaled to size 6.6pt on input line 99.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1552,9 +1579,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [7]
-LaTeX Font Info:    Font shape `T1/zpltlf/b/it' will be
-(Font)              scaled to size 12.0pt on input line 205.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1564,6 +1588,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [8]
+LaTeX Font Info:    Font shape `T1/zpltlf/b/it' will be
+(Font)              scaled to size 12.0pt on input line 217.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1582,10 +1609,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [10]
-Package textcomp Info: Symbol \textreferencemark not provided by
-(textcomp)             font family zpltlf in TS1 encoding.
-(textcomp)             Default family used instead on input line 269.
-)
+Underfull \hbox (badness 10000) in paragraph at lines 281--290
+[]$[]$ $[]$
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1594,7 +1621,47 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[11] (./cours.aux)
+[11]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[12]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[13]
+Package textcomp Info: Symbol \textreferencemark not provided by
+(textcomp)             font family zpltlf in TS1 encoding.
+(textcomp)             Default family used instead on input line 396.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[14])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[15] (./cours.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.72pt have occurred.
@@ -1603,16 +1670,16 @@ LaTeX Font Warning: Size substitutions with differences
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `cours.out' has not changed.
-(rerunfilecheck)             Checksum: B225B2A7475536504CD6F857C6581722;3673.
+(rerunfilecheck)             Checksum: 949AC5EE8EE25861D3992C2399DFEDF9;3840.
  ) 
 Here is how much of TeX's memory you used:
- 34251 strings out of 479002
- 638480 string characters out of 5858341
- 1089075 words of memory out of 5000000
- 51013 multiletter control sequences out of 15000+600000
- 481622 words of font info for 132 fonts, out of 8000000 for 9000
+ 34329 strings out of 479002
+ 639950 string characters out of 5858341
+ 1091050 words of memory out of 5000000
+ 51071 multiletter control sequences out of 15000+600000
+ 482238 words of font info for 134 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 101i,18n,107p,442b,1072s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 101i,18n,107p,737b,962s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/us
 r/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}{/usr/loc
 al/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/loca
@@ -1629,10 +1696,10 @@ lic/txfonts/txsyb.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/ne
 wpx/zplb.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newpx/zplbi
 .pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newpx/zplr.pfb></us
 r/local/texlive/2021/texmf-dist/fonts/type1/public/newpx/zplri.pfb>
-Output written on cours.pdf (11 pages, 173161 bytes).
+Output written on cours.pdf (15 pages, 198486 bytes).
 PDF statistics:
- 294 PDF objects out of 1000 (max. 8388607)
- 240 compressed objects within 3 object streams
- 51 named destinations out of 1000 (max. 500000)
- 309 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 336 PDF objects out of 1000 (max. 8388607)
+ 278 compressed objects within 3 object streams
+ 69 named destinations out of 1000 (max. 500000)
+ 317 words of extra memory for PDF output out of 10000 (max. 10000000)
 

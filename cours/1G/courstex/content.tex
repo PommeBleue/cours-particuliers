@@ -43,14 +43,15 @@ Ce cours traîtera de généralités sur les suites réelles dans le carde du pr
 \subsection{Définitions}
 
 \begin{definition}{Suite réelle}{o}
-Une suite réelle est une fonction de $\N$ dans $\R$. On note généralement $(u_n)_{n\in\N}$ un tel objet, mais les notations suivantes sont possibles : $(u_n)_n$, $(u_n)$ ou simplement $u$.
+Une suite réelle est une fonction de $\N$ dans $\R$. On note généralement $(u_n)_{n\in\N}$ un tel objet, mais les notations suivantes sont possibles : $(u_n)_{n\geq 0}$, $(u_n)$ ou simplement $u$.
 \end{definition}
-
+\textbf{Vocabulaire :} pour un entier naturel $n$ donné, le \textit{réel} $u_n$ est appelé terme de rang $n$, ou d'indice $n$ de la suite $(u_n)$. On pourra aussi rencontrer l'appellation "terme général".
 Les suites peuvent être définies de plusieurs manières différentes. Dans le cadre du programme de 1ère, on retient deux manières principales de définir une suite : 
 \begin{itemize}
-	\item \textbf{Définition explicite} : Si on possède une fonction $f:\N\to\R$, on peut directement définir une suite en donnant son terme général. Pour tout $n\in\N$, $u_n=f(n)$.
+	\item \textbf{Définition explicite} : Si on possède une fonction $f:\R\to\R$, on peut directement définir une suite en donnant son terme général. Pour tout $n\in\N$, $u_n=f(n)$.
 	\item \textbf{Définition par récurrence} : Si on possède une fonction $f:\R\to\R$, on peut définir une suite en donnant deux informations : le premier terme de la suite, en général $u_0$, et comment, pour un entier $n$ donné, le terme $u_{n+1}$ est calculé à partir du terme $u_n$, et ce en donnant une relation de récurrence : pour tout entier naturel $n$, $u_{n+1}=f(u_n)$.
 \end{itemize}
+\textbf{Remarque :} il n'est pas exclu qu'une suite puisse être définie à partir d'un rang différent de $0$. Dans ce cas là, on note $(u_n)_{n\geq n_0}$, $n_0$ étant l'indice de son premier terme.
 
 \begin{exemple}{Suite définie par récurrence}{o}
 Soit une suite $(u_n)$ définie par \[\begin{cases}u_0=1\\ \forall n\in\N,\quad u_{n+1}=2u_n\end{cases}\]
@@ -101,6 +102,8 @@ Soit $(u_n)$ une suite arithmétique de raison $r\in\R$. On a \[\forall n\in\N,\
 	Cette relation reste vraie au rang $0$, puisque $u_0=u_0+0\times r$.
 \end{proof}
 
+\textbf{Remarque :} de manière réciproque, toute suite $(u_n)_{n\geq 0}$ définie par \[\forall n\in\N,\quad u_n=an+b\] où $a$ et $b$ sont des réels est une suite arithmétique de raison $a$ (et de premier terme $b$).
+
 \begin{exemple}{Expression explicite d'une suite arithmétique}{o}
 	Soit $(u_n)$ la suite définie par \[\begin{cases}u_0=1\\\forall n\in\N,\quad u_{n+1}=u_n+3\end{cases}\]
 	Donner l'expression du terme général de $(u_n)$.
@@ -146,7 +149,7 @@ On factorise par $(n+1)$ et on a
 \end{align*}
 \end{proof}
 
-\subsubsection{suites géométriques}
+\subsubsection{Suites géométriques}
 \begin{definition}{Suite géométrique}{o}
 	Soit $(u_n)$ une suite réelle. S'il existe un réel $q$ tel que \[\forall n\in\N,\quad u_{n+1}=qu_n\]
 	alors on dit que $(u_n)$ est géométrique. On appelle $q$ la raison de la suite.
@@ -164,7 +167,16 @@ Comme pour le cas des suites arithmétiques, l’exemple précédent amène éga
 \end{proposition}
 
 \begin{proof}
-	Clair. Laissée au lecteur.
+	La démonstration est similaire à celle qui a été faite dans le cas des suites arithmétiques. Soit $n\in\N$, on écrit la relation de récurrence $n$ fois comme suit :
+	\begin{align*}
+		u_1 &= u_0q\\
+		u_2 &= u_1q\\
+		\vdots\\
+		u_n &= u_{n-1}q
+	\end{align*}
+	En faisant le produit de toutes ces relations, on obtient \[u_1\times\dots\times u_n=u_0q\times\dots\times u_{n-1}q=u_0\times\dots\times u_{n-1}\times q^n\]
+	Si $u_0$ et $q$ ne sont pas nuls, aucun des termes de la suite est nul et on peut alors simplifier par $u_1\times\dots\times u_{n-1}$ pour obtenir \[u_n=u_0q^n\]
+	Si $u_0$ ou $q$ est nul, la relation reste quand même vraie et c'est une simple vérification.
 \end{proof}
 
 \begin{exemple}{Expression explicite d'une suite géométrique}{o}
@@ -235,7 +247,7 @@ Soit $(u_n)$ une suite arithmétique de raison $r\in\R$. Ainsi
 \end{itemize}
 \end{proposition}
 \begin{proof}
-Soit $n\in\N$, on sait que $u_{n+1}=u_n+r$, donc $u_{n+1}-u_n=r$. Ainsi, si $r\leq 0$ $(u_n)$ est décroissante et si $r\geq 0$ $(u_n)$ est croissante d'après les définition.
+Soit $n\in\N$, on sait que $u_{n+1}=u_n+r$, donc $u_{n+1}-u_n=r$. Ainsi, si $r\leq 0$ $(u_n)$ est décroissante et si $r\geq 0$ $(u_n)$ est croissante d'après les définitions.
 \end{proof}
 
 \begin{proposition}{Sens de variation des suites géométriques}{o}
@@ -247,7 +259,7 @@ Soit $(u_n)$ une suite géométrique de raison $q\in\R$. Plusieurs cas se prése
 		\item Si $q = 1$, alors $(u_n)$ est constante.
 		\item Si $q \leq 1$, alors $(u_n)$ est décroissante (resp. croissante).
 	\end{itemize}
-	\item Si $q = 0$, alors $(u_n)$ est stationnaire égale à $0$ à partir du range $1$.
+	\item Si $q = 0$, alors $(u_n)$ est stationnaire égale à $0$ à partir du rang $1$.
 	\item Si $q < 0$, on ne peut malheureusement rien dire...
 \end{itemize}
 \end{proposition}
@@ -258,23 +270,176 @@ Soit $(u_n)$ une suite géométrique de raison $q\in\R$. Plusieurs cas se prése
 \end{exemple}
 
 \subsubsection{Cas des suites définies explicitement}
+Au tout début de ce chapitre sur les suites réelles, deux manières de définir une suite ont été évoquées; l'une d'entre elles est la définition explicite. Dans cette définition, la fonction $f:\R\to\R$ dont il était question peut être appelée fonction associée.
+\begin{proposition}{Montonie d'une suite que l'on peut exprimer explicitement}{o}
+	Soit $(u_n)_{n\geq n_0}$ une suite réelle dont on sait exprimer le terme général. Si la fonction associée à $(u_n)$ est monotone sur $[n_0,+\infty[$, alors la suite $(u_n)$ est également monotone de même monotonie que sa fonction associée.
+\end{proposition}
+
+\begin{exemple}{Un exemple qui nous fait faire des révisions}{o}
+	Déterminer la monotonie des suites définies par les termes généraux suivants
+	\begin{enumerate}
+		\begin{minipage}{0.4\linewidth}
+		    \item $u_n=n^2$
+		\end{minipage}
+		\begin{minipage}{0.4\linewidth}
+		    \item $u_n=\sqrt{n}$
+		\end{minipage}
+		\begin{minipage}{0.4\linewidth}
+		    \item $u_n=\frac1n$
+		\end{minipage}
+	\end{enumerate}
+\end{exemple}
 
 \subsection{Représentation graphique d'une suite}
+Une suite est représentée graphiquement à l'aide de points ou de symboles positionnés aux images par $u$ des entiers naturels plus grand que $n_0$ (l'indice du premier terme de la suite).
+\begin{center}
+	\begin{tikzpicture}
+		\draw[step=0.5, gray, very thin] (0,0) grid (5,2.5);
+		\draw[->, thick] (0,0) -- (0,2.5) node [above left] {$u_n$};
+		\draw[->, thick] (0,0) -- (5,0) node [below right] {$n$};
+		\fill[blue!40] (0,2) circle (0.1);
+		\fill[blue!40] (1,1) circle (0.1);
+		\fill[blue!40] (2,0.5) circle (0.1);
+		\fill[blue!40] (3,0.25) circle (0.1);
+		\fill[blue!40] (4,0.125) circle (0.1);
+	\end{tikzpicture}
+\end{center}
+Ci-dessus, un exemple de la suite $(u_n)$ définie par $\forall n\in\N,\ u_n=\frac1{2^n}$.
+\begin{exemple}{Représente-moi ça}{o}
+Représentés graphiquement les suites de l'exemple 1.4.3.
+\end{exemple}
 
 \subsection{Limite d'une suite}
+Dans le cadre du programme de première, aucune définition ou formalisation de la notion de limite n'est à connaître; dans cette partie, il s'agira ainsi seulement de comprendre intuitivement à quoi cela correspond. 
 
-\subsection{Compléments}
+\subsubsection{Limite finie}
+Soit $(u_n)$ la suite définie par \[\forall n\in\N,\quad u_n=\frac1{2^n}+1\]
+On représente les premiers termes de la suite graphiquement : 
+
+\begin{center}
+	\begin{tikzpicture}
+		\draw[step=0.5, gray, very thin] (0,0) grid (7,4.5);
+		\draw[->, thick] (0,0) -- (0,4.5) node [above left] {$u_n$};
+		\draw[->, thick] (0,0) -- (7,0) node [below right] {$n$};
+		\node at (0, 2) [left] {$1$};
+		\node at (0, 4) [left] {$2$};
+		\node at (1, 0) [below] {$1$};
+		\fill[blue!40] (0,4) circle (0.1);
+		\fill[blue!40] (1,3) circle (0.1);
+		\fill[blue!40] (2,2.5) circle (0.1);
+		\fill[blue!40] (3,2.25) circle (0.1);
+		\fill[blue!40] (4,2.125) circle (0.1);
+		\fill[blue!40] (5,2.0625) circle (0.1);
+		\fill[blue!40] (6,2.03125) circle (0.1);
+	\end{tikzpicture}
+\end{center}
+
+Visuellement, on peut déjà remarquer que les termes de la suite, représenter par les points bleus, se raprochent d'autant plus que $n$ est grand d'une certaine valeur, ici 1. On est ici en présence d'une suite qui possède une limite \textit{finie} égale à 1. En réalité, on dit qu'un réel est limite d'une suite si, peu importe la distance $\delta$ que l'on choisit, aussi petite soit-elle, pourvu qu'elle ne soit pas nulle, il existe un rang $n_0$ à partir duquel tous les termes de la suite se trouve à une distance plus petite que $\delta$ du candidat limite. Graphiquement, on peut représenter le choix de cette distance $\delta$ avec un \textit{tube} de largeur $2\delta$ :
+
+\begin{center}
+	\begin{tikzpicture}
+		\draw[step=0.5, gray, very thin] (0,0) grid (7,4.5);
+		\draw[red, very thick] (0,2.5) -- (7,2.5);
+		\draw[red, very thick] (0,1.5) -- (7,1.5);
+		\draw[dashed, red] (2,2.5) -- (2,0);
+		\draw[red, <->] (7.1,2.5) -- (7.1,2) node [midway, right] {\color{red} $\delta = \frac14$};
+		\node at (2, 0) [below] {\color{red}$n_0$};
+		\draw[->, thick] (0,0) -- (0,4.5) node [above left] {$u_n$};
+		\draw[->, thick] (0,0) -- (7,0) node [below right] {$n$};
+		\node at (0, 2) [left] {$1$};
+		\node at (0, 4) [left] {$2$};
+		\node at (1, 0) [below] {$1$};
+		\fill[blue!40] (0,4) circle (0.1);
+		\fill[blue!40] (1,3) circle (0.1);
+		\fill[blue!40] (2,2.5) circle (0.1);
+		\fill[blue!40] (3,2.25) circle (0.1);
+		\fill[blue!40] (4,2.125) circle (0.1);
+		\fill[blue!40] (5,2.0625) circle (0.1);
+		\fill[blue!40] (6,2.03125) circle (0.1);
+	\end{tikzpicture}
+\end{center}
+
+\begin{exemple}{Trouver $n_0$}{o}
+	Soit $(u_n)$ la suite définie par \[\forall n\in\N,\quad u_n=\frac{2n+1}{3n-3}\]
+	Représenter graphiquer les premiers termes de cette suite. En sachant que $u$ possède une limite finie égale à $\frac23$, déterminer graphiquement le rang à partir duquel tous les termes de la suite sont à une distance inférieure à $\delta=\frac12$ de la limite. 
+\end{exemple}
+
+\subsubsection{Limite Infinie}
+La définition pour ce type de limites est similaire à celui que l'on a vu précédemment, à la seule différence que, au lieu de choisir un tube, on choisit un seuil. On dit qu'une suite $(u_n)$ a pour limite $+\infty$ (resp. $-\infty$) si pour tout réel $A$ il existe un rang $n_0$ à partir duquel tous les termes de la suite sont supérieurs à (resp. inférieurs à) $A$.
+
+Graphiquement, on peut représenter le choix du réel $A$ par une simple \textit{barre} horizontale :
+\begin{center}
+	\begin{tikzpicture}
+		\draw[step=0.5, gray, very thin] (0,0) grid (9,4);
+		\draw[red, very thick] (0,2) -- (9,2);
+		\node at (9,2) [right] {\color{red}$A=2$};
+		\draw[dashed, red] (4, 2) -- (4,0);
+		\node at (4, 0) [below] {\color{red}$n_0$};
+		\draw[->, thick] (0,0) -- (0,4) node [above left] {$u_n$};
+		\draw[->, thick] (0,0) -- (9,0) node [below right] {$n$};
+		\node at (0, 1) [left] {$1$};
+		\node at (1, 0) [below] {$1$};
+		\fill[blue!40] (0,0) circle (0.1);
+		\fill[blue!40] (1,1) circle (0.1);
+		\fill[blue!40] (2,1.4142135623730951) circle (0.1);
+		\fill[blue!40] (3,1.7320508075688772) circle (0.1);
+		\fill[blue!40] (4,2) circle (0.1);
+		\fill[blue!40] (5,2.23606797749979) circle (0.1);
+		\fill[blue!40] (6,2.449489742783178) circle (0.1);
+		\fill[blue!40] (7,2.6457513110645907) circle (0.1);
+		\fill[blue!40] (7,2.8284271247461903) circle (0.1);
+	\end{tikzpicture}
+\end{center}
+La suite représentée ci-dessus a pour terme général $u_n=\sqrt n$.
 
 \newpage
 \section[Polynômes du second degré]{Polynômes du second degré}
 
-\subsection{Définition}
+\subsection{Généralités}
+\begin{definition}{Fonction polynomiale de degré 2}{o}
+On appelle fonction polynômiale de degré 2 toute fonction définie sur $\R$ pouvant s'écrire sous la forme $P(x)=ax^2+bx+c$ où $a,b$ et $c$ sont trois réels avec $a\neq 0$.
+\end{definition}
+\textbf{Vocabulaire :} les trois réels $a,b$ et $c$ sont appelés coefficients de $P$ et $a$ est appelé le coefficient dominant. 
+
+
+\textbf{Remarque : } même si il existe une différence entre les objets mathématiques appelés "polynôme" et "fonction polynômiale", on se permet dans la suite de confondre fonction polynomiale du second degré et polynôme de degré 2. 
+
+\begin{definition}{Racine d'un polynôme de degré 2}{o}
+	Soit $P$ un polynôme de degré $2$ et $\alpha\in\R$. Si $P(\alpha)=0$, alors on dit que $\alpha$ est racine de $P$.
+\end{definition}
+\textbf{Remarque : } les racines n'existent pas toujours. 
+\begin{proposition}{Nombre de racines d'un polynôme de degré deux}{o}
+	Soit $P$ un polynôme de degré $2$. $P$ admet au plus $2$ racines.
+\end{proposition}
+
+\begin{proposition}{Coefficients de deux polynômes égaux}{o}
+	Deux polynômes de degré deux égaux ont mêmes coefficients.
+\end{proposition}
 
 \subsection{Forme canonique et forme factorisée}
+Il existe plusieurs expressions algébriques pour un polynomiale. L'une des capacités attendues des élèves dans ce chapitre c'est de savoir choisir la bonne forme à utiliser dans le cadre d'un exercice ou de la résolution d'un problème. Mais bien sûr, avant, il faut les connaître ! La forme vue dans la partie précédent et qui a servi à définir l'objet que l'on étudie ici s'appelle \textit{forme développée} du polynôme. 
 
-\subsection{Signe d'une fonction polynômiale du second degré}
+\begin{proposition}{Forme canonique d'un polynôme de degré $2$}{o}
+Soit $P$ un polynôme de degré $2$ de forme développée $P(x)=ax^2+bx+c$ où $a,b$ et $c$ sont trois réels avec $a\neq 0$. Alors, pour tout réel $x$, on a 
+\[P(x)=a\left[\left(x+\frac b{2a}\right)^2-\frac{b^2-4ac}{4a^2}\right]\]
+\end{proposition}
 
-\subsection{Équations du second degré}
+\begin{proof}
+	Soit $x$ un réel, on a 
+	\begin{align*}
+		P(x) &= ax^2+bx+c\\
+			 &= a\left(x^2+\frac bax+\frac ca\right)\\
+			 &= a\Big(\underbrace{x^2+2\frac b{2a}x}_{=\left(x+\frac b{2a}\right)^2-\left(\frac b{2a}\right)^2}+\frac ca\Big)\\
+			 &= a\left[\left(x+\frac b{2a}\right)^2-\frac{b^2}{4a^2}+\frac ca\right]\\
+			 &= a\left[\left(x+\frac b{2a}\right)^2-\frac{b^2-4ac}{4a^2}\right]
+	\end{align*}
+\end{proof}
+
+\begin{proposition}{Forme factorisée d'un polynôme de degré $2$}{o}
+	Soit $P$ un polynôme de degré $2$ de coefficient dominant $a\neq 0$. Si $P$ admet deux racines $\alpha$ et $\beta$ disctinctes ou confondues (cela veut dire qu'il est possible d'avoir $\alpha=\beta$), alors on peut écrire \[P(x)=a(x-\alpha)(x-\beta)\]
+\end{proposition}
+
+\subsection{Équations du second degré et signe d'une fonction polynomiale de degré $2$}
 
 \subsection{Compléments}
 

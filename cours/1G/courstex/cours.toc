@@ -4,17 +4,18 @@
 \contentsline {subsection}{\numberline {1.2}Définitions}{3}{subsection.1.2}%
 \contentsline {subsection}{\numberline {1.3}Suites arithmétiques et géométriques}{4}{subsection.1.3}%
 \contentsline {subsubsection}{\numberline {1.3.1}Suites arithmétiques}{4}{subsubsection.1.3.1}%
-\contentsline {subsubsection}{\numberline {1.3.2}suites géométriques}{7}{subsubsection.1.3.2}%
+\contentsline {subsubsection}{\numberline {1.3.2}Suites géométriques}{7}{subsubsection.1.3.2}%
 \contentsline {subsection}{\numberline {1.4}Sens de variations d'une suite}{9}{subsection.1.4}%
 \contentsline {subsubsection}{\numberline {1.4.1}Suites monotones et constantes}{9}{subsubsection.1.4.1}%
 \contentsline {subsubsection}{\numberline {1.4.2}Cas des suites arithmétiques et géométriques}{10}{subsubsection.1.4.2}%
-\contentsline {subsubsection}{\numberline {1.4.3}Cas des suites définies explicitement}{10}{subsubsection.1.4.3}%
-\contentsline {subsection}{\numberline {1.5}Représentation graphique d'une suite}{10}{subsection.1.5}%
-\contentsline {subsection}{\numberline {1.6}Limite d'une suite}{10}{subsection.1.6}%
-\contentsline {subsection}{\numberline {1.7}Compléments}{10}{subsection.1.7}%
-\contentsline {section}{\numberline {2}Polynômes du second degré}{11}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Définition}{11}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Forme canonique et forme factorisée}{11}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Signe d'une fonction polynômiale du second degré}{11}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Équations du second degré}{11}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Compléments}{11}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {1.4.3}Cas des suites définies explicitement}{11}{subsubsection.1.4.3}%
+\contentsline {subsection}{\numberline {1.5}Représentation graphique d'une suite}{11}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Limite d'une suite}{12}{subsection.1.6}%
+\contentsline {subsubsection}{\numberline {1.6.1}Limite finie}{12}{subsubsection.1.6.1}%
+\contentsline {subsubsection}{\numberline {1.6.2}Limite Infinie}{13}{subsubsection.1.6.2}%
+\contentsline {section}{\numberline {2}Polynômes du second degré}{14}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Généralités}{14}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Forme canonique et forme factorisée}{14}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Signe d'une fonction polynômiale du second degré}{15}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Équations du second degré}{15}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Compléments}{15}{subsection.2.5}%
